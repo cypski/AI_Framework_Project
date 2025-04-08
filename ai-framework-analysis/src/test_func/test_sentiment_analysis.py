@@ -14,10 +14,10 @@ def analyze_sentiment_in_pdf(filepath):
     Returns:
         dict: A dictionary with percentages of positive, negative, and neutral sentiments.
     """
-    # Initialize the sentiment analyzer
+    # initialise the sentiment analyzer
     sia = SentimentIntensityAnalyzer()
     
-    # Initialize counters for sentiment scores
+    # initialise counters for sentiment scores
     positive_count = 0
     negative_count = 0
     neutral_count = 0
@@ -31,7 +31,7 @@ def analyze_sentiment_in_pdf(filepath):
                 # split text into sentences
                 sentences = text.split('.')
                 for sentence in sentences:
-                    if sentence.strip():  # Ignore empty sentences
+                    if sentence.strip():  # ignore empty sentences
                         total_sentences += 1
                         sentiment = sia.polarity_scores(sentence)
                         if sentiment['compound'] > 0.05:
@@ -41,7 +41,6 @@ def analyze_sentiment_in_pdf(filepath):
                         else:
                             neutral_count += 1
     
-    # Calculate percentages
     positive_percentage = (positive_count / total_sentences) * 100 if total_sentences > 0 else 0
     negative_percentage = (negative_count / total_sentences) * 100 if total_sentences > 0 else 0
     neutral_percentage = (neutral_count / total_sentences) * 100 if total_sentences > 0 else 0
@@ -53,11 +52,10 @@ def analyze_sentiment_in_pdf(filepath):
     }
 
 if __name__ == "__main__":
-    # Example usage
+    # example usage
     filepath = # Replace with PDF file path
     sentiment_results = analyze_sentiment_in_pdf(filepath)
     
-    # Print the results
     print("Sentiment Analysis Results:")
     print(f"Positive: {sentiment_results['positive']:.2f}%")
     print(f"Negative: {sentiment_results['negative']:.2f}%")
