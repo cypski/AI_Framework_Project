@@ -36,7 +36,6 @@ if __name__ == "__main__":
                       "compliance", "governance", "protect", "sustainab",
                       "fair", "catastroph", "responsib", "prepare"] 
     word_counts = count_words_in_pdf(filepath, words_to_count)
-    
-    # print the results
+
     for word, count in word_counts.items():
         print(f"{word}: {count}")
